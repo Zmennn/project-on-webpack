@@ -2,7 +2,7 @@
 import imageRock from "./images/rock.png";
 
 //подключаем стили
-import "./styles/main.scss";
+import "./styles/style.css";
 
 
 
