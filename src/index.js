@@ -5,13 +5,16 @@ import stringHandler from "./js/templateString"
 //подключаем стили
 import "./styles/style.css";
 
+console.log(defData);
+console.log(JSON.stringify(defData));
+
+if (!localStorage.getItem("listNotes")) {
+    localStorage.setItem("listNotes", JSON.stringify(defData))
+};
+
 const localStorageItems = JSON.parse(localStorage.getItem("listNotes"));
 
-const items = localStorageItems ? localStorageItems : defData;
+const markup = localStorageItems.map((item) => stringHandler(item)).join("")
 
-
-const markup = items.map((item) => stringHandler(item)).join("")
-
-console.log("rr", markup);
 refs.list.insertAdjacentHTML('beforeend', markup);
 refs.form.addEventListener('submit', onSubmit)
